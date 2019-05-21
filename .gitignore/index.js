@@ -20,7 +20,7 @@ client.on("message", async (message) => {
         .setTitle("LISTE DES COMMANDES :")
         .setDescription("!**help** : Montrer cette liste de commandes \n\n!**game** *{00h00}* : Pinger everyone et annoncer une partie \n\n!**lobby** *{liensteam}* : Donner le lien steam et choisir les paramètres de la partie \n\n!**clear** : Supprimer tous les messages dans le channel demandé (soumis aux droits)")
         .setFooter("Toute personne utilisant mal les commandes, de manière volontaire, se verra privée de celle-ci.");
-        client.message.send({embed})
+        message.channel.send({embed})
     } 
 
     if (command === "game") {  
