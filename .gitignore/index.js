@@ -37,7 +37,7 @@ client.on("message", async (message) => {
     if (command === "lobby") {  
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
-        .setTitle("@here \n\nLien steam : " + args.join(" ") + "\n\nParamètres de la partie :")
+        .setTitle("Lien steam : " + args.join(" ") + "\n\nParamètres de la partie :")
         .setDescription("Carte : 1⃣  Pangée | 2⃣  Fractale | 3⃣  Continent | 4⃣ plateau d'Ile | 5⃣ Aléatoire");
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
