@@ -18,15 +18,15 @@ client.on("message", async (message) => {
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
         .setTitle("LISTE DES COMMANDES :")
-        .setDescription("!**help** : Montrer cette liste de commandes \n\n!**game** *{00h00}* : Pinger everyone et annoncer une partie \n\n!**lobby** *{liensteam}* : Donner le lien steam et choisir les paramètres de la partie")
-        .setFooter("Toutes mauvaises utilisations abusives et/ou répétées des commandes seront sanctionnées");
+        .setDescription("!**help** : Montrer cette liste de commandes \n\n!**game** *{00h00}* : Pinger everyone et annoncer une partie \n\n!**lobby** *{liensteam}* : Donner le lien steam et choisir les paramètres de la partie \n\n!**clear** : Supprimer tous les messages dans le channel demandé (soumis aux droits)")
+        .setFooter("Toute personne utilisant mal les commandes, de manière volontaire, se verra privée de celle-ci.");
         client.channels.get("579282279176601610").send({embed})
     } 
 
     if (command === "game") {  
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
-        .setTitle("Organisation d'une partie")
+        .setTitle("Organisation d'une partie :")
         .setDescription("@everyone Une game est prévue pour " + args.join(" ") + " ! ✅ si présent.");
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
@@ -37,7 +37,7 @@ client.on("message", async (message) => {
     if (command === "lobby") {  
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
-        .setTitle("Lien steam : " + args.join(" ") + "\n\nParamètres de la partie :")
+        .setTitle("@here \n\nLien steam : " + args.join(" ") + "\n\nParamètres de la partie :")
         .setDescription("Carte : 1⃣  Pangée | 2⃣  Fractale | 3⃣  Continent | 4⃣ plateau d'Ile | 5⃣ Aléatoire");
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
@@ -79,4 +79,13 @@ client.on("message", async (message) => {
         .setDescription("Bans : valable si NombreDeVotes ≥ NombreDeJoueurs/2");
         client.channels.get("579282279176601610").send({embed})
     }   
+
+    if (command === "clear") {
+        if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES"))return
+        message.channel.fetchMessages()
+          .then(messages => {
+            message.channel.bulkDelete(messages);
+            messagesDeleted = messages.array().length;
+          })
+    }
 })
