@@ -6,18 +6,18 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("message", async (message) => {
     if (message.author.bot) return
-    if (!message.content.startsWith(prefix)) return;
+    if (!message.content.startsWith(prefix)) return
 
     let command = message.content.split(" ")[0];
     command = command.slice(prefix.length);
 
     let args = message.content.split(" ").slice(1);
 
-    if (command === "game") {  
+    if (command === "game") { 
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
         .setTitle("Organisation d'une partie :")
-        .setDescription("@everyone Une game de Civilization VI est organisée à " + args.join(" ") + " ! ✅ si présent.")
+        .setDescription( role + "une game se lance")
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
             message.react('✅');
@@ -27,28 +27,27 @@ client.on("message", async (message) => {
     if (command === "lobby") {  
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
-        .setTitle("Lien steam : " + args.join(" ") + "\n\nParamètres de la partie :")
-        .setDescription("Carte : 1⃣  Pangée | 2⃣  Fractale | 3⃣  Continent | 4⃣ plateau d'Ile | 5⃣ Aléatoire");
+        .setDescription("Carte : :regional_indicator_p:  Pangée | :regional_indicator_f: Fractale | :regional_indicator_c: Continent | :regional_indicator_i: plateau d'Ile | :regional_indicator_a: Aléatoire");
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
-            message.react('1⃣')
-            .then(() => message.react('2⃣'))
-            .then(() => message.react('3⃣'))
-            .then(() => message.react('4⃣'))
-            .then(() => message.react('5⃣'));
+            message.react('🇵')
+            .then(() => message.react('🇫'))
+            .then(() => message.react('🇨'))
+            .then(() => message.react('🇮'))
+            .then(() => message.react('🇦'));
         })
     }
 
         if (command === "lobby") {
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
-        .setDescription("Timer : 🕒 Dynamique | 🔥 90s Rapide | 🚎 120s Normal | 💤 150s Lent");
+        .setDescription("Timer : 🕒 Dynamique | 🔥 60s Rapide | 🚎 90s Normal | 🐢 120s Lent");
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
             message.react('🕒')
             .then(() => message.react('🔥'))
             .then(() => message.react('🚎'))
-            .then(() => message.react('💤'));
+            .then(() => message.react('🐢'));
         })    
     }    
 
