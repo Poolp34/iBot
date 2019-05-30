@@ -17,7 +17,7 @@ client.on("message", async (message) => {
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
         .setTitle("Organisation d'une partie :")
-        .setDescription("@everyone Une game de Civilization VI est organisée à " + args.join(" ") + " ! ✅ si présent.")
+        .setDescription("@CivilizationVI Une game de Civilization VI est organisée à " + args.join(" ") + " ! ✅ si présent.")
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
             message.react('✅');
