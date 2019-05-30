@@ -14,14 +14,8 @@ client.on("message", async (message) => {
     let args = message.content.split(" ").slice(1);
 
     if (command === "game") { 
-        const embed = new Discord.RichEmbed()
-        .setColor(0xFFFFFF)
-        .setTitle("Organisation d'une partie :")
-        .setDescription( role + "une game se lance")
-        client.channels.get("579282279176601610").send({embed})
-        .then(function (message) {
-            message.react('✅');
-        })
+        const msg = await client.channels.get("579282279176601610").send("@everyone Une game de Civilization VI est prévue pour " + args.join(" ") + " ! ✅ si présent.")
+        msg.react('✅')
     }
 
     if (command === "lobby") {  
