@@ -41,12 +41,12 @@ client.on("message", async (message) => {
         if (command === "lobby") {
         const embed = new Discord.RichEmbed()
         .setColor(0xFFFFFF)
-        .setDescription("Timer : 🕒 Dynamique | 🔥 60s Rapide | 🚎 90s Normal | 🐢 120s Lent");
+        .setDescription("Timer : 🕒 Dynamique | 🔥 60s Rapide | 🚗 90s Normal | 🐢 120s Lent");
         client.channels.get("579282279176601610").send({embed})
         .then(function (message) {
             message.react('🕒')
             .then(() => message.react('🔥'))
-            .then(() => message.react('🚎'))
+            .then(() => message.react('🚗'))
             .then(() => message.react('🐢'));
         })    
     }    
